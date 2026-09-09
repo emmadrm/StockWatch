@@ -16,7 +16,7 @@
 .watchlist li {
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid #f8f9f9;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -27,6 +27,7 @@
   padding: 0.4rem 0.6rem;
   cursor: pointer;
   font-weight: 600;
+  color: #b3726e;
 }
 
 .symbol-btn:hover {

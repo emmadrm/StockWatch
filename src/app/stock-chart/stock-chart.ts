@@ -51,7 +51,7 @@ export class StockChart {
       const canvas = this.canvasRef();
       if (!data || data.s !== 'ok' || !canvas) return;
 
-      const labels = data.t.map((ts) => new Date(ts * 1000).toLocaleDateString('el-GR'));
+      const labels = data.t.map((ts) => new Date(ts * 1000).toString().slice(4, 10));
 
       this.chart?.destroy();
       this.chart = new Chart(canvas.nativeElement, {
@@ -62,8 +62,8 @@ export class StockChart {
             {
               label: this.symbol(),
               data: data.c,
-              borderColor: '#2563eb',
-              tension: 0.2,
+              borderColor: '#b64139',
+              tension: 0.1,
               pointRadius: 0,
             },
           ],

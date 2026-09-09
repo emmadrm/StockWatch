@@ -1,0 +1,20 @@
+img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #320f0b;
+    border-top: 1px solid #eee;
+}

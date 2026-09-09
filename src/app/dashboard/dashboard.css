@@ -2,10 +2,20 @@
   padding: 1rem;
 }
 
-.search-row {
+.first-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+button{
+  background-color: #b3726e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .grid {

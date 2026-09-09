@@ -4,8 +4,31 @@
 
 form {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-bottom: 1rem;
+}
+
+form input {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #b3726e;
+  background-color: #b3726e;
+  color: black;
+  border-radius: 5px;
+  height: 26px;
+}
+
+form input::placeholder {
+  color: rgb(82, 53, 53);
+  font-style: italic;
+}
+
+form button {
+  border: none;
+  background-color: #b64139;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .empty {
@@ -14,7 +37,7 @@ form {
 
 .summary {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }

@@ -4,7 +4,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.6rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #7e6e6e;
+  margin-bottom: 20px;
 }
 
 .symbol {

@@ -1,0 +1,16 @@
+.details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 3rem;
+}
+
+.price , .change {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.7rem 0;
+}

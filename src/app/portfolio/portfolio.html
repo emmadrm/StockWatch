@@ -1,5 +1,5 @@
 <div class="portfolio">
-  <h2>Portfolio</h2>
+  <h1>PORTOFOLIO</h1>
 
   <form (submit)="$event.preventDefault(); addPosition()">
     <input
@@ -14,7 +14,7 @@
       name="amountInvested"
       type="number"
       step="0.01"
-      placeholder="Πόσα χρήματα επένδυσες ($)"
+      placeholder="Πόσα επένδυσες ($)"
     />
     <input
       [ngModel]="newBuyPrice()"
@@ -30,6 +30,16 @@
   @if (positions().length === 0) {
     <p class="empty">Δεν έχεις προσθέσει ακόμα καμία θέση.</p>
   } @else {
+    <div class="positions">
+      @for (position of positions(); track position.id) {
+        <app-portfolio-position
+          [position]="position"
+          (remove)="remove($event)"
+          (valueChange)="onValueChange($event)"
+        />
+      }
+    </div>
+    
     <div class="summary">
       <div>Επενδυμένο κεφάλαιο: {{ totalInvested() | number: '1.2-2' }} $</div>
       <div>Τρέχουσα αξία: {{ totalCurrentValue() | number: '1.2-2' }} $</div>
@@ -41,16 +51,6 @@
         Συνολικό κέρδος/ζημιά: {{ totalGain() >= 0 ? '+' : '' }}{{ totalGain() | number: '1.2-2' }} $
         ({{ totalGainPercent() >= 0 ? '+' : '' }}{{ totalGainPercent() | number: '1.2-2' }}%)
       </div>
-    </div>
-
-    <div class="positions">
-      @for (position of positions(); track position.id) {
-        <app-portfolio-position
-          [position]="position"
-          (remove)="remove($event)"
-          (valueChange)="onValueChange($event)"
-        />
-      }
     </div>
   }
 </div>

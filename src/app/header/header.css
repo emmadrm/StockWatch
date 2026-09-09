@@ -9,6 +9,31 @@
 form {
   display: flex;
   gap: 0.25rem;
+  margin: 20px;
+}
+
+form input {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #b3726e;
+  background-color: #b3726e;
+  color: black;
+  border-radius: 5px;
+  height: 26px;
+  width: 200px;
+}
+
+form input::placeholder {
+  color: black;
+  font-style: italic;
+}
+
+form button {
+  border: none;
+  background-color: #b3726e;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 nav {
@@ -19,11 +44,11 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #555;
+  color: #8d8d8d;
   padding: 0.25rem 0.5rem;
 }
 
 nav a.active {
-  color: #2563eb;
+  color: #b64139;
   font-weight: 600;
 }
