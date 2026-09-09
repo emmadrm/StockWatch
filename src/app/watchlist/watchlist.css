@@ -1,0 +1,51 @@
+.watchlist {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.watchlist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.watchlist li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.symbol-btn {
+  border: none;
+  background: none;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.symbol-btn:hover {
+  background: #f2f2f2;
+}
+
+.remove-btn {
+  border: none;
+  border-left: 1px solid #ddd;
+  background: none;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.remove-btn:hover {
+  color: #c00;
+}
+
+.empty {
+  color: #999;
+}

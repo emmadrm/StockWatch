@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="symbol">{{ position().symbol }}</div>
+  <div class="qty">
+    {{ position().amountInvested | number: '1.2-2' }} $ @ {{ position().buyPrice | number: '1.2-2' }} $
+    ({{ quantity() | number: '1.4-4' }} μτχ)
+  </div>
+
+  @if (quote.isLoading()) {
+    <div class="status">Φόρτωση...</div>
+  } @else if (quote.error()) {
+    <div class="status">Σφάλμα τιμής</div>
+  } @else {
+    <div class="value">{{ currentValue() | number: '1.2-2' }} $</div>
+    <div class="gain" [class.positive]="(gain() ?? 0) >= 0" [class.negative]="(gain() ?? 0) < 0">
+      {{ (gain() ?? 0) >= 0 ? '+' : '' }}{{ gain() | number: '1.2-2' }} $
+      ({{ (gainPercent() ?? 0) >= 0 ? '+' : '' }}{{ gainPercent() | number: '1.2-2' }}%)
+    </div>
+  }
+
+  <button type="button" class="remove-btn" (click)="remove.emit(position().id)">✕</button>
+</div>

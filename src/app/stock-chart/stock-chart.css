@@ -1,0 +1,21 @@
+.mock-badge {
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0 0 0.25rem;
+}
+
+.chart-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+.status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #666;
+}

@@ -1,0 +1,9 @@
+<p class="mock-badge">(δοκιμαστικά δεδομένα — θα αντικατασταθούν με πραγματικό ιστορικό)</p>
+<div class="chart-container">
+  @if (candles.isLoading()) {
+    <p class="status">Φόρτωση γραφήματος...</p>
+  } @else if (candles.error() || candles.value()?.s !== 'ok') {
+    <p class="status">Δεν ήταν δυνατή η φόρτωση ιστορικών τιμών για {{ symbol() }}.</p>
+  }
+  <canvas #canvas></canvas>
+</div>

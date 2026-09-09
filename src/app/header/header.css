@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+form {
+  display: flex;
+  gap: 0.25rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  padding: 0.25rem 0.5rem;
+}
+
+nav a.active {
+  color: #2563eb;
+  font-weight: 600;
+}

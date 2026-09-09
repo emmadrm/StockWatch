@@ -1,0 +1,36 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1.5fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.symbol {
+  font-weight: 600;
+}
+
+.status {
+  color: #999;
+}
+
+.positive {
+  color: #16a34a;
+}
+
+.negative {
+  color: #dc2626;
+}
+
+.remove-btn {
+  border: none;
+  background: none;
+  color: #999;
+  cursor: pointer;
+  justify-self: end;
+}
+
+.remove-btn:hover {
+  color: #c00;
+}

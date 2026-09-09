@@ -1,0 +1,16 @@
+@if (quote.isLoading()) {
+  <p>Φόρτωση τιμών...</p>
+} @else if (quote.error()) {
+  <p>Σφάλμα φόρτωσης τιμών για {{ symbol() }}</p>
+} @else if (quote.value(); as q) {
+  <div class="price">{{ q.c | number: '1.2-2' }} $</div>
+  <div class="change" [class.positive]="q.d >= 0" [class.negative]="q.d < 0">
+    {{ q.d >= 0 ? '+' : '' }}{{ q.d | number: '1.2-2' }} ({{ q.dp | number: '1.2-2' }}%)
+  </div>
+  <div class="details">
+    <span>Άνοιγμα: {{ q.o | number: '1.2-2' }}</span>
+    <span>Υψηλό: {{ q.h | number: '1.2-2' }}</span>
+    <span>Χαμηλό: {{ q.l | number: '1.2-2' }}</span>
+    <span>Προηγ. κλείσιμο: {{ q.pc | number: '1.2-2' }}</span>
+  </div>
+}

@@ -1,0 +1,30 @@
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.news-list li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.news-list a {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.news-list a:hover {
+  text-decoration: underline;
+}
+
+.source {
+  font-size: 0.75rem;
+  color: #999;
+}

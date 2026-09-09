@@ -1,0 +1,28 @@
+.portfolio {
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty {
+  color: #999;
+}
+
+.summary {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary .gain.positive {
+  color: #16a34a;
+}
+
+.summary .gain.negative {
+  color: #dc2626;
+}

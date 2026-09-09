@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <div class="search-row">
+    <label>
+      Σύμβολο μετοχής (π.χ. AAPL, MSFT, TSLA):
+      <input [ngModel]="selectedStock.symbol()" (ngModelChange)="selectedStock.select($event)" />
+    </label>
+    <button type="button" (click)="addToWatchlist()">+ Προσθήκη στη Watchlist</button>
+  </div>
+
+  <div class="grid">
+    <div class="chart-area">
+      <app-stock-chart [symbol]="selectedStock.symbol()" />
+    </div>
+    <div class="side-area">
+      <div class="prices-area">
+        <app-stock-prices [symbol]="selectedStock.symbol()" />
+      </div>
+      <div class="news-area">
+        <app-stock-news [symbol]="selectedStock.symbol()" />
+      </div>
+    </div>
+  </div>
+
+  <app-watchlist (selectSymbol)="selectedStock.select($event)" />
+</div>
