@@ -1,16 +1,31 @@
+<h3>Τρέχουσα τιμή</h3>
+
 @if (quote.isLoading()) {
-  <p>Φόρτωση τιμών...</p>
+  <p class="status">Φόρτωση τιμών...</p>
 } @else if (quote.error()) {
-  <p>Σφάλμα φόρτωσης τιμών για {{ symbol() }}</p>
+  <p class="status">Σφάλμα φόρτωσης τιμών για {{ symbol() }}</p>
 } @else if (quote.value(); as q) {
   <div class="price">{{ q.c | number: '1.2-2' }} $</div>
   <div class="change" [class.positive]="q.d >= 0" [class.negative]="q.d < 0">
+    <span class="arrow">{{ q.d >= 0 ? '▲' : '▼' }}</span>
     {{ q.d >= 0 ? '+' : '' }}{{ q.d | number: '1.2-2' }} ({{ q.dp | number: '1.2-2' }}%)
   </div>
   <div class="details">
-    <span>Άνοιγμα: {{ q.o | number: '1.2-2' }}</span>
-    <span>Υψηλό: {{ q.h | number: '1.2-2' }}</span>
-    <span>Χαμηλό: {{ q.l | number: '1.2-2' }}</span>
-    <span>Προηγούμενο κλείσιμο: {{ q.pc | number: '1.2-2' }}</span>
+    <div class="stat">
+      <span class="label">Άνοιγμα</span>
+      <span class="value">{{ q.o | number: '1.2-2' }}</span>
+    </div>
+    <div class="stat">
+      <span class="label">Υψηλό</span>
+      <span class="value">{{ q.h | number: '1.2-2' }}</span>
+    </div>
+    <div class="stat">
+      <span class="label">Χαμηλό</span>
+      <span class="value">{{ q.l | number: '1.2-2' }}</span>
+    </div>
+    <div class="stat">
+      <span class="label">Προηγ. κλείσιμο</span>
+      <span class="value">{{ q.pc | number: '1.2-2' }}</span>
+    </div>
   </div>
 }

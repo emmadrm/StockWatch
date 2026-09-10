@@ -1,7 +1,7 @@
-<div class="watchlist">
+<div class="watchlist card">
   <h3>Watchlist</h3>
   @if (symbols().length === 0) {
-    <p class="empty">Δεν έχεις προσθέσει ακόμα μετοχές.</p>
+    <p class="empty">Δεν έχεις προσθέσει ακόμα μετοχές. Πάτησε "+ Προσθήκη στη Watchlist" παραπάνω.</p>
   } @else {
     <ul>
       @for (symbol of symbols(); track symbol) {
@@ -9,7 +9,7 @@
           <button type="button" class="symbol-btn" (click)="selectSymbol.emit(symbol)">
             {{ symbol }}
           </button>
-          <button type="button" class="remove-btn" (click)="remove(symbol)">✕</button>
+          <button type="button" class="remove-btn" (click)="remove(symbol)" aria-label="Αφαίρεση">✕</button>
         </li>
       }
     </ul>

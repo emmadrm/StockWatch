@@ -1,36 +1,66 @@
 <div class="portfolio">
-  <h1>PORTOFOLIO</h1>
+  <h1>Portfolio</h1>
 
-  <form (submit)="$event.preventDefault(); addPosition()">
-    <input
-      [ngModel]="newSymbol()"
-      (ngModelChange)="newSymbol.set($event)"
-      name="symbol"
-      placeholder="Σύμβολο (π.χ. AAPL)"
-    />
-    <input
-      [ngModel]="newAmountInvested()"
-      (ngModelChange)="newAmountInvested.set($event)"
-      name="amountInvested"
-      type="number"
-      step="0.01"
-      placeholder="Πόσα επένδυσες ($)"
-    />
-    <input
-      [ngModel]="newBuyPrice()"
-      (ngModelChange)="newBuyPrice.set($event)"
-      name="buyPrice"
-      type="number"
-      step="0.01"
-      placeholder="Τιμή αγοράς ($)"
-    />
-    <button type="submit">Προσθήκη θέσης</button>
-  </form>
+  @if (positions().length > 0) {
+    <div class="stats">
+      <div class="stat-tile card">
+        <span class="label">Επενδυμένο κεφάλαιο</span>
+        <span class="value">{{ totalInvested() | number: '1.2-2' }} $</span>
+      </div>
+      <div class="stat-tile card">
+        <span class="label">Τρέχουσα αξία</span>
+        <span class="value">{{ totalCurrentValue() | number: '1.2-2' }} $</span>
+      </div>
+      <div class="stat-tile card">
+        <span class="label">Συνολικό κέρδος/ζημιά</span>
+        <span class="value" [class.positive]="totalGain() >= 0" [class.negative]="totalGain() < 0">
+          {{ totalGain() >= 0 ? '+' : '' }}{{ totalGain() | number: '1.2-2' }} $
+          <span class="pct">({{ totalGainPercent() >= 0 ? '+' : '' }}{{ totalGainPercent() | number: '1.2-2' }}%)</span>
+        </span>
+      </div>
+    </div>
+  }
+
+  <div class="add-form card">
+    <h3>Νέα θέση</h3>
+    <form (submit)="$event.preventDefault(); addPosition()">
+      <input
+        [ngModel]="newSymbol()"
+        (ngModelChange)="newSymbol.set($event)"
+        name="symbol"
+        placeholder="Σύμβολο (π.χ. AAPL)"
+      />
+      <input
+        [ngModel]="newAmountInvested()"
+        (ngModelChange)="newAmountInvested.set($event)"
+        name="amountInvested"
+        type="number"
+        step="0.01"
+        placeholder="Πόσα επένδυσες ($)"
+      />
+      <input
+        [ngModel]="newBuyPrice()"
+        (ngModelChange)="newBuyPrice.set($event)"
+        name="buyPrice"
+        type="number"
+        step="0.01"
+        placeholder="Τιμή αγοράς ($)"
+      />
+      <button type="submit">Προσθήκη θέσης</button>
+    </form>
+  </div>
 
   @if (positions().length === 0) {
     <p class="empty">Δεν έχεις προσθέσει ακόμα καμία θέση.</p>
   } @else {
-    <div class="positions">
+    <div class="positions card">
+      <div class="positions-header">
+        <span>Σύμβολο</span>
+        <span>Επένδυση</span>
+        <span>Τρέχουσα αξία</span>
+        <span>Κέρδος/Ζημιά</span>
+        <span></span>
+      </div>
       @for (position of positions(); track position.id) {
         <app-portfolio-position
           [position]="position"
@@ -38,19 +68,6 @@
           (valueChange)="onValueChange($event)"
         />
       }
-    </div>
-    
-    <div class="summary">
-      <div>Επενδυμένο κεφάλαιο: {{ totalInvested() | number: '1.2-2' }} $</div>
-      <div>Τρέχουσα αξία: {{ totalCurrentValue() | number: '1.2-2' }} $</div>
-      <div
-        class="gain"
-        [class.positive]="totalGain() >= 0"
-        [class.negative]="totalGain() < 0"
-      >
-        Συνολικό κέρδος/ζημιά: {{ totalGain() >= 0 ? '+' : '' }}{{ totalGain() | number: '1.2-2' }} $
-        ({{ totalGainPercent() >= 0 ? '+' : '' }}{{ totalGainPercent() | number: '1.2-2' }}%)
-      </div>
     </div>
   }
 </div>

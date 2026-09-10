@@ -1,10 +1,10 @@
 @if (news.isLoading()) {
-  <p>Φόρτωση ειδήσεων...</p>
+  <p class="status">Φόρτωση ειδήσεων...</p>
 } @else if (news.error()) {
-  <p>Σφάλμα φόρτωσης ειδήσεων.</p>
+  <p class="status">Σφάλμα φόρτωσης ειδήσεων.</p>
 } @else if (news.value(); as items) {
   @if (items.length === 0) {
-    <p>Δεν υπάρχουν πρόσφατα νέα για {{ symbol() }}.</p>
+    <p class="status">Δεν υπάρχουν πρόσφατα νέα για {{ symbol() }}.</p>
   } @else {
     <ul class="news-list">
       @for (item of items.slice(0, 6); track item.url) {

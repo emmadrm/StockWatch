@@ -1,17 +1,22 @@
 <div class="dashboard">
   <div class="first-row">
-    <h1>{{ selectedStock.symbol() }}</h1>
+    <div>
+      <span class="eyebrow">Επιλεγμένη μετοχή</span>
+      <h1>{{ selectedStock.symbol() }}</h1>
+    </div>
     <button type="button" (click)="addToWatchlist()">+ Προσθήκη στη Watchlist</button>
   </div>
+
   <div class="grid">
-    <div class="chart-area">
+    <div class="chart-area card">
       <app-stock-chart [symbol]="selectedStock.symbol()" />
     </div>
     <div class="side-area">
-      <div class="prices-area">
+      <div class="prices-area card">
         <app-stock-prices [symbol]="selectedStock.symbol()" />
       </div>
-      <div class="news-area">
+      <div class="news-area card">
+        <h3>Τελευταία νέα</h3>
         <app-stock-news [symbol]="selectedStock.symbol()" />
       </div>
     </div>

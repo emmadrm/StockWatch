@@ -1,37 +1,48 @@
 .row {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1.5fr auto;
+  grid-template-columns: var(--portfolio-cols);
   align-items: center;
   gap: 1rem;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid #7e6e6e;
-  margin-bottom: 20px;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.row:last-child {
+  border-bottom: none;
 }
 
 .symbol {
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.qty {
+  color: var(--text-muted);
+  font-size: 0.82rem;
 }
 
 .status {
-  color: #999;
+  color: var(--text-faint);
 }
 
-.positive {
-  color: #16a34a;
+.value {
+  font-weight: 600;
 }
 
-.negative {
-  color: #dc2626;
+.gain {
+  font-weight: 600;
+  font-size: 0.88rem;
 }
 
 .remove-btn {
   border: none;
   background: none;
-  color: #999;
+  color: var(--text-faint);
   cursor: pointer;
   justify-self: end;
+  font-size: 0.8rem;
 }
 
 .remove-btn:hover {
-  color: #c00;
+  color: var(--danger);
 }
